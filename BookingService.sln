@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingService.API", "BookingService.API\BookingService.API.csproj", "{44F3FD1A-AE86-4D83-8132-E48A59F6DA78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSevice.Entity", "BookingSevice.Entity\BookingSevice.Entity.csproj", "{D464DB07-6B1C-4DF9-8EE7-365ED9DAE781}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingService.DataAccess", "BookingService.DataAccess\BookingService.DataAccess.csproj", "{85C79E0C-3963-43DC-B6DD-D198889A5F4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingService.Business", "BookingService.Business\BookingService.Business.csproj", "{C3C318C6-CE2B-4DF3-80D2-23E550024E44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{44F3FD1A-AE86-4D83-8132-E48A59F6DA78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44F3FD1A-AE86-4D83-8132-E48A59F6DA78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44F3FD1A-AE86-4D83-8132-E48A59F6DA78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D464DB07-6B1C-4DF9-8EE7-365ED9DAE781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D464DB07-6B1C-4DF9-8EE7-365ED9DAE781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D464DB07-6B1C-4DF9-8EE7-365ED9DAE781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D464DB07-6B1C-4DF9-8EE7-365ED9DAE781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C79E0C-3963-43DC-B6DD-D198889A5F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C79E0C-3963-43DC-B6DD-D198889A5F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C79E0C-3963-43DC-B6DD-D198889A5F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C79E0C-3963-43DC-B6DD-D198889A5F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3C318C6-CE2B-4DF3-80D2-23E550024E44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C318C6-CE2B-4DF3-80D2-23E550024E44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C318C6-CE2B-4DF3-80D2-23E550024E44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C318C6-CE2B-4DF3-80D2-23E550024E44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

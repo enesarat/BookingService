@@ -1,0 +1,10 @@
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\bin\Debug\netcoreapp3.1\BookingSevice.Entity.deps.json
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\bin\Debug\netcoreapp3.1\BookingSevice.Entity.dll
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\bin\Debug\netcoreapp3.1\BookingSevice.Entity.pdb
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\obj\Debug\netcoreapp3.1\BookingSevice.Entity.csproj.AssemblyReference.cache
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\obj\Debug\netcoreapp3.1\BookingSevice.Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\obj\Debug\netcoreapp3.1\BookingSevice.Entity.AssemblyInfoInputs.cache
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\obj\Debug\netcoreapp3.1\BookingSevice.Entity.AssemblyInfo.cs
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\obj\Debug\netcoreapp3.1\BookingSevice.Entity.csproj.CoreCompileInputs.cache
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\obj\Debug\netcoreapp3.1\BookingSevice.Entity.dll
+C:\Users\Enes\source\repos\BookingService\BookingSevice.Entity\obj\Debug\netcoreapp3.1\BookingSevice.Entity.pdb

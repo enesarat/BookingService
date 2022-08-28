@@ -6,6 +6,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.28" />
+    <PackageReference Include="Npgsql" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookingService.Business\BookingService.Business.csproj" />
+    <ProjectReference Include="..\BookingService.DataAccess\BookingService.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

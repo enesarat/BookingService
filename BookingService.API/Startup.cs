@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
+using BookingService.DataAccess;
+using BookingService.Business.Abstract;
+using BookingService.Business.Concrete;
+using BookingService.DataAccess.EntityFramework;
+using BookingService.DataAccess.Abstract;
 
 namespace BookingService.API
 {
@@ -29,13 +31,18 @@ namespace BookingService.API
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
+            /*services.AddDbContext<BookingServiceDbContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("BookingServiceDbContext")));
+            */
 
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
             services.AddControllers();
-            
+            services.AddSingleton<IBookingsService, BookingManager>();
+            services.AddSingleton<IBookingsDAL,EfBookingsRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
