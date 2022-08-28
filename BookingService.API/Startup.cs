@@ -40,8 +40,18 @@ namespace BookingService.API
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
             services.AddControllers();
+
             services.AddSingleton<IBookingsService, BookingManager>();
             services.AddSingleton<IBookingsDAL,EfBookingsRepository>();
+
+            services.AddSingleton<IAppartmentsService, AppartmentsManager>();
+            services.AddSingleton<IAppartmentsDAL, EfAppartmentsRepository>();
+
+            services.AddSingleton<ICompanyService, CompanyManager>();
+            services.AddSingleton<ICompanyDAL, EfCompanyRepository>();
+
+            services.AddSingleton<IUsersService, UsersManager>();
+            services.AddSingleton<IUsersDAL, EfUsersRepository>();
 
         }
 

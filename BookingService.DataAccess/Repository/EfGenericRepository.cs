@@ -24,19 +24,33 @@ namespace BookingService.DataAccess.Repository
             }
         }
 
-        public Task<T> GetItemById(int id)
+        public async Task<T> GetItemById(int id)
         {
-            throw new NotImplementedException();
+            using (BookingServiceDbContext dbContext = new BookingServiceDbContext())
+            {
+                var item = await dbContext.Set<T>().FindAsync(id);
+                return item;
+            }
         }
 
-        public Task<T> InsertItem(T item)
+        public async Task<T> InsertItem(T item)
         {
-            throw new NotImplementedException();
+            using (BookingServiceDbContext dbContext = new BookingServiceDbContext())
+            {
+                await dbContext.Set<T>().AddAsync(item);
+                await dbContext.SaveChangesAsync();
+                return item;
+            }
         }
 
-        public Task<T> UpdateItem(T item)
+        public async Task<T> UpdateItem(T item)
         {
-            throw new NotImplementedException();
+            using (BookingServiceDbContext dbContext = new BookingServiceDbContext())
+            {
+                dbContext.Set<T>().Update(item);
+                await dbContext.SaveChangesAsync();
+                return item;
+            }
         }
     }
 }

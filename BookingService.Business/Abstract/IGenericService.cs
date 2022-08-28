@@ -12,5 +12,7 @@ namespace BookingService.Business.Abstract
         Task<T> GetElementById(int id);
         Task<T> InsertElement(T item);
         Task<T> UpdateElement(T item);
+        Task DeleteItem(int id);
+
     }
 }

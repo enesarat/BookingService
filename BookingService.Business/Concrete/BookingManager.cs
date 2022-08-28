@@ -15,25 +15,34 @@ namespace BookingService.Business.Concrete
         {
             this.bookingsAccess = bookingsAccess;
         }
+
+        public async Task DeleteItem(int id)
+        {
+            await bookingsAccess.DeleteItem(id);
+        }
+
         public async Task<List<bookings>> GetAllElement()
         {
             var bookingsList = await bookingsAccess.GetAllItems();
             return bookingsList;
         }
 
-        public Task<bookings> GetElementById(int id)
+        public async Task<bookings> GetElementById(int id)
         {
-            throw new NotImplementedException();
+            var booking = await bookingsAccess.GetItemById(id);
+            return booking;
         }
 
-        public Task<bookings> InsertElement(bookings item)
+        public async Task<bookings> InsertElement(bookings item)
         {
-            throw new NotImplementedException();
+            await bookingsAccess.InsertItem(item);
+            return item;
         }
 
-        public Task<bookings> UpdateElement(bookings item)
+        public async Task<bookings> UpdateElement(bookings item)
         {
-            throw new NotImplementedException();
+            await bookingsAccess.UpdateItem(item);
+            return item;
         }
     }
 }
