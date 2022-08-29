@@ -32,6 +32,30 @@ namespace BookingService.Business.Concrete
             return user;
         }
 
+        public async Task<string> GetUserEmail(users item)
+        {
+            string email =  usersAccess.GetEmail(item);
+            return email;
+        }
+
+        public async Task<string> GetUserFirstName(users item)
+        {
+            string firstName = usersAccess.GetFirstname(item);
+            return firstName;
+        }
+
+        public async Task<string> GetUserLastName(users item)
+        {
+            string lastName = usersAccess.GetLastname(item);
+            return lastName;
+        }
+
+        public async Task<string> GetUserPhoneNo(users item)
+        {
+            string phoneNo = usersAccess.GetPhoneNo(item);
+            return phoneNo;
+        }
+
         public async Task<users> InsertElement(users item)
         {
             await usersAccess.InsertItem(item);
@@ -43,5 +67,6 @@ namespace BookingService.Business.Concrete
             await usersAccess.UpdateItem(item);
             return item;
         }
+
     }
 }
