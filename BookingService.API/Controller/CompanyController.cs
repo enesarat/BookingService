@@ -1,4 +1,5 @@
 ﻿using BookingService.Business.Abstract;
+using BookingService.Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,10 +19,24 @@ namespace BookingService.API.Controller
             manageCompany = companyService;
         }
 
+        //-------------------------------------------------------Get Requests Starts------------------------------------------//
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             return Ok(await manageCompany.GetAllElement()); // 200 + retrieved data 
+        }
+        //-------------------------------------------------------Get Requests Ends------------------------------------------//
+
+        //-------------------------------------------------------Post Requests Starts------------------------------------------//
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] company company)
+        {
+            if (ModelState.IsValid)
+            {
+                var newCompany = await manageCompany.InsertElement(company);
+                return CreatedAtAction("Get", new { companyId = newCompany.id }, newCompany); // 201 + data + header info for data location
+            }
+            return BadRequest(ModelState); // 400 + validation errors
         }
     }
 }

@@ -58,6 +58,17 @@ namespace BookingService.Business.Concrete
 
         public async Task<users> InsertElement(users item)
         {
+            List<users> userLsit = await usersAccess.GetAllItems();
+            var count = userLsit.Count;
+            if (count > 0)
+            {
+                var lastUser = userLsit[count - 1];
+                item.id = lastUser.id + 1;
+            }
+            else
+            {
+                item.id = 0;
+            }
             await usersAccess.InsertItem(item);
             return item;
         }

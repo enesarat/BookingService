@@ -1,5 +1,6 @@
 ﻿using BookingService.Business.Abstract;
 using BookingService.DataAccess.Helper.Exceptions;
+using BookingService.Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,6 +20,7 @@ namespace BookingService.API.Controller
             manageUsers = usersService;
         }
 
+        //-------------------------------------------------------Get Requests Starts------------------------------------------//
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -63,6 +65,19 @@ namespace BookingService.API.Controller
             var user = manageUsers.GetElementById(id);
             var phoneno = manageUsers.GetUserPhoneNo(await user);
             return Ok(phoneno); // 200 + retrieved data 
+        }
+        //-------------------------------------------------------Get Requests Ends------------------------------------------//
+
+        //-------------------------------------------------------Post Requests Starts------------------------------------------//
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] users user)
+        {
+            if (ModelState.IsValid)
+            {
+                var newUser = await manageUsers.InsertElement(user);
+                return CreatedAtAction("Get", new { userId = newUser.id }, newUser); // 201 + data + header info for data location
+            }
+            return BadRequest(ModelState); // 400 + validation errors
         }
     }
 }
