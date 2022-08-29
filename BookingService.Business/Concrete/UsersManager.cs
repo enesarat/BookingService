@@ -34,25 +34,25 @@ namespace BookingService.Business.Concrete
 
         public async Task<string> GetUserEmail(users item)
         {
-            string email =  usersAccess.GetEmail(item);
+            string email = item.email;
             return email;
         }
 
         public async Task<string> GetUserFirstName(users item)
         {
-            string firstName = usersAccess.GetFirstname(item);
+            string firstName = item.first_name;
             return firstName;
         }
 
         public async Task<string> GetUserLastName(users item)
         {
-            string lastName = usersAccess.GetLastname(item);
+            string lastName = item.last_name;
             return lastName;
         }
 
         public async Task<string> GetUserPhoneNo(users item)
         {
-            string phoneNo = usersAccess.GetPhoneNo(item);
+            string phoneNo = item.phone;
             return phoneNo;
         }
 

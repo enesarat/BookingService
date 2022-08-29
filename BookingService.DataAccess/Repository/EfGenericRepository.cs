@@ -1,4 +1,5 @@
 ﻿using BookingService.DataAccess.Abstract;
+using BookingService.DataAccess.Helper.Exceptions;
 using BookingService.Entity.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -29,6 +30,8 @@ namespace BookingService.DataAccess.Repository
             using (BookingServiceDbContext dbContext = new BookingServiceDbContext())
             {
                 var item = await dbContext.Set<T>().FindAsync(id);
+                if (item == null)
+                    throw new DataNotFoundException(nameof(item), id);
                 return item;
             }
         }

@@ -1,4 +1,5 @@
 ﻿using BookingService.Business.Abstract;
+using BookingService.DataAccess.Helper.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -25,6 +26,7 @@ namespace BookingService.API.Controller
         }
 
         [HttpGet]
+        [ExceptionFilter]
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetFistName(int id)
         {
@@ -34,6 +36,7 @@ namespace BookingService.API.Controller
         }
 
         [HttpGet]
+        [ExceptionFilter]
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetLastName(int id)
         {
@@ -43,6 +46,7 @@ namespace BookingService.API.Controller
         }
 
         [HttpGet]
+        [ExceptionFilter]
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetEmail(int id)
         {
@@ -52,6 +56,7 @@ namespace BookingService.API.Controller
         }
 
         [HttpGet]
+        [ExceptionFilter]
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetPhoneNo(int id)
         {

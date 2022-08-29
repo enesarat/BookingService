@@ -63,3 +63,6 @@ C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreap
 C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\BookingService.Business.pdb
 C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\BookingService.DataAccess.pdb
 C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\BookingSevice.Entity.pdb
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\obj\Debug\netcoreapp3.1\BookingService.API.MvcApplicationPartsAssemblyInfo.cs
