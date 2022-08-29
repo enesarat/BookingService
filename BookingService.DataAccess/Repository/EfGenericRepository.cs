@@ -11,9 +11,14 @@ namespace BookingService.DataAccess.Repository
 {
     public class EfGenericRepository<T> : IGenericEntityDAL<T> where T : class, IEntity, new()
     {
-        public Task DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            throw new NotImplementedException();
+            using (BookingServiceDbContext dbContext = new BookingServiceDbContext())
+            {
+                var deleteItem = await GetItemById(id);
+                dbContext.Set<T>().Remove(deleteItem);
+                await dbContext.SaveChangesAsync();
+            }
         }
 
         public async Task<List<T>> GetAllItems()

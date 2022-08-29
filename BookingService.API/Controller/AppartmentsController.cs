@@ -39,7 +39,7 @@ namespace BookingService.API.Controller
             }
             return BadRequest(ModelState); // 400 + validation errors
         }
-        //-------------------------------------------------------Post Requests Starts------------------------------------------//
+        //-------------------------------------------------------Post Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Put Requests Starts------------------------------------------//
         [HttpPut]
@@ -53,6 +53,22 @@ namespace BookingService.API.Controller
             }
             return NotFound(); // 404 
         }
-        //-------------------------------------------------------Put Requests Starts------------------------------------------//
+        //-------------------------------------------------------Put Requests Ends------------------------------------------//
+
+        //-------------------------------------------------------Delete Requests Starts------------------------------------------//
+        [HttpDelete]
+        [ExceptionFilter]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> DeleteAppartmentById(int id)
+        {
+            if (await manageAppartments.GetElementById(id) != null)
+            {
+                await manageAppartments.DeleteItem(id);
+                return Ok(); // 200
+            }
+            return NotFound(); // 404 
+        }
+        //-------------------------------------------------------Delete Requests Ends------------------------------------------//
+
     }
 }
