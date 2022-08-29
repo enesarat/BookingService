@@ -1,4 +1,5 @@
 ﻿using BookingService.Business.Abstract;
+using BookingService.DataAccess.Helper.Exceptions;
 using BookingService.Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,5 +39,21 @@ namespace BookingService.API.Controller
             }
             return BadRequest(ModelState); // 400 + validation errors
         }
+        //-------------------------------------------------------Post Requests Starts------------------------------------------//
+
+        //-------------------------------------------------------Put Requests Starts------------------------------------------//
+        [HttpPut]
+        [ExceptionFilter]
+
+        public async Task<IActionResult> Put([FromBody] company oldCompany)
+        {
+            if (await manageCompany.GetElementById(oldCompany.id) != null)
+            {
+                return Ok(await manageCompany.UpdateElement(oldCompany)); // 200 + data
+            }
+            return NotFound(); // 404 
+        }
+        //-------------------------------------------------------Put Requests Starts------------------------------------------//
+
     }
 }

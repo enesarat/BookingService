@@ -79,5 +79,20 @@ namespace BookingService.API.Controller
             }
             return BadRequest(ModelState); // 400 + validation errors
         }
+        //-------------------------------------------------------Post Requests Starts------------------------------------------//
+
+        //-------------------------------------------------------Put Requests Starts------------------------------------------//
+        [HttpPut]
+        [ExceptionFilter]
+
+        public async Task<IActionResult> Put([FromBody] users oldUser)
+        {
+            if (await manageUsers.GetElementById(oldUser.id) != null)
+            {
+                return Ok(await manageUsers.UpdateElement(oldUser)); // 200 + data
+            }
+            return NotFound(); // 404 
+        }
+        //-------------------------------------------------------Put Requests Starts------------------------------------------//
     }
 }

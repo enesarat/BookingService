@@ -9,5 +9,8 @@ namespace BookingService.DataAccess.Helper.Exceptions
         public DataNotFoundException(string type, object id)
         : base($"{id} id değerine sahip, {type} tipinde olan herhangi bir obje bulunamadı! ") { }
 
+        public DataNotFoundException(string type)
+        : base($"{type} tipindeki obje, işlem için bulunamamıştır!") { }
+
     }
 }

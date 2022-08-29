@@ -1,4 +1,5 @@
 ﻿using BookingService.Business.Abstract;
+using BookingService.DataAccess.Helper.Exceptions;
 using BookingService.Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,5 +39,20 @@ namespace BookingService.API.Controller
             }
             return BadRequest(ModelState); // 400 + validation errors
         }
+        //-------------------------------------------------------Post Requests Starts------------------------------------------//
+
+        //-------------------------------------------------------Put Requests Starts------------------------------------------//
+        [HttpPut]
+        [ExceptionFilter]
+
+        public async Task<IActionResult> Put([FromBody] appartments oldAppartment)
+        {
+            if (await manageAppartments.GetElementById(oldAppartment.id) != null)
+            {
+                return Ok(await manageAppartments.UpdateElement(oldAppartment)); // 200 + data
+            }
+            return NotFound(); // 404 
+        }
+        //-------------------------------------------------------Put Requests Starts------------------------------------------//
     }
 }
