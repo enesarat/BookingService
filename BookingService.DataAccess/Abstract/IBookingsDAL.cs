@@ -9,6 +9,5 @@ namespace BookingService.DataAccess.Abstract
 {
     public interface IBookingsDAL : IGenericEntityDAL<bookings>
     {
-        public Task<List<bookings>> GetElementsByPaging(PagingParameters pagingParameters);
     }
 }

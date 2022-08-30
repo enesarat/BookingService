@@ -1,6 +1,7 @@
 ﻿using BookingService.DataAccess.Abstract;
 using BookingService.DataAccess.Helper.Exceptions;
 using BookingService.Entity.Abstract;
+using BookingSevice.Entity.Concrete.DTO;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,18 @@ namespace BookingService.DataAccess.Repository
             using (BookingServiceDbContext dbContext = new BookingServiceDbContext())
             {
                 var itemList = await dbContext.Set<T>().ToListAsync();
+                return itemList;
+            }
+        }
+
+        public async Task<List<T>> GetElementsByPaging(PagingParameters pagingParameters)
+        {
+            using (BookingServiceDbContext dbContext = new BookingServiceDbContext())
+            {
+                var itemList = await dbContext.Set<T>()
+                    .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                    .Take(pagingParameters.PageSize)
+                    .ToListAsync();
                 return itemList;
             }
         }

@@ -25,7 +25,7 @@ namespace BookingService.API.Controller
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
-            return Ok(await manageBookings.GetAllElementByPaging(pagingParameters)); // 200 + retrieved data 
+            return Ok(await manageBookings.GetElementsByPaging(pagingParameters)); // 200 + retrieved data 
         }
 
         [HttpGet]

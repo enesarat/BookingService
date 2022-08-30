@@ -57,11 +57,13 @@ namespace BookingService.Business.Concrete
             return bookingsList;
         }
 
-        public async Task<List<bookings>> GetAllElementByPaging(PagingParameters pagingParameters)
+        public async Task<List<bookings>> GetElementsByPaging(PagingParameters pagingParameters)
         {
             var bookingsList = await bookingsAccess.GetElementsByPaging(pagingParameters);
             return bookingsList;
         }
+
+
         public List<bookings> GetAllItemsByFilter(Expression<Func<bookings, bool>> filter)
         {
             return bookingsAccess.GetAllItemsByFilter(filter);
@@ -357,6 +359,6 @@ namespace BookingService.Business.Concrete
             return item;
         }
 
-       
+        
     }
 }

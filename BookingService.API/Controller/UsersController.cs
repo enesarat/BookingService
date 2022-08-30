@@ -1,6 +1,7 @@
 ﻿using BookingService.Business.Abstract;
 using BookingService.DataAccess.Helper.Exceptions;
 using BookingService.Entity.Concrete;
+using BookingSevice.Entity.Concrete.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,9 +23,9 @@ namespace BookingService.API.Controller
 
         //-------------------------------------------------------Get Requests Starts------------------------------------------//
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
-            return Ok(await manageUsers.GetAllElement()); // 200 + retrieved data 
+            return Ok(await manageUsers.GetElementsByPaging(pagingParameters)); // 200 + retrieved data 
         }
 
         [HttpGet]

@@ -13,16 +13,6 @@ namespace BookingService.DataAccess.EntityFramework
 {
     public class EfBookingsRepository : EfGenericRepository<bookings>, IBookingsDAL
     {
-        public async Task<List<bookings>> GetElementsByPaging(PagingParameters pagingParameters)
-        {
-            using (BookingServiceDbContext dbContext = new BookingServiceDbContext())
-            {
-                var itemList = await dbContext.Set<bookings>()
-                    .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
-                    .Take(pagingParameters.PageSize)
-                    .ToListAsync();
-                return itemList;
-            }
-        }
+       
     }
 }

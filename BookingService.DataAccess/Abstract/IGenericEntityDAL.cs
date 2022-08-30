@@ -1,4 +1,5 @@
 ﻿using BookingService.Entity.Abstract;
+using BookingSevice.Entity.Concrete.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -10,6 +11,7 @@ namespace BookingService.DataAccess.Abstract
     public interface IGenericEntityDAL<T> where T : class, IEntity, new()
     {
         Task<List<T>> GetAllItems();
+        Task<List<T>> GetElementsByPaging(PagingParameters pagingParameters);
         List<T> GetAllItemsByFilter(Expression<Func<T, bool>> filter);
         Task<T> GetItemById(int id);
         Task<T> InsertItem(T item);

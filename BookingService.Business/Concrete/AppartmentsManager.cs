@@ -1,6 +1,7 @@
 ﻿using BookingService.Business.Abstract;
 using BookingService.DataAccess.Abstract;
 using BookingService.Entity.Concrete;
+using BookingSevice.Entity.Concrete.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -36,6 +37,12 @@ namespace BookingService.Business.Concrete
         {
             var appartment = await appartmentsAccess.GetItemById(id);
             return appartment;
+        }
+
+        public async Task<List<appartments>> GetElementsByPaging(PagingParameters pagingParameters)
+        {
+            var appartmentList = await appartmentsAccess.GetElementsByPaging(pagingParameters);
+            return appartmentList;
         }
 
         public async Task<appartments> InsertElement(appartments item)

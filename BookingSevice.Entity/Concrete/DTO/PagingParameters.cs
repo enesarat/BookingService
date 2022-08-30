@@ -10,7 +10,7 @@ namespace BookingSevice.Entity.Concrete.DTO
 
         const int maxPageSize = 25;
 
-        private int _pageSize = 5;
+        private int _pageSize = 10;
 
         public int PageSize {
             get

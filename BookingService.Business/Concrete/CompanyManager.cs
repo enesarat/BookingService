@@ -1,6 +1,7 @@
 ﻿using BookingService.Business.Abstract;
 using BookingService.DataAccess.Abstract;
 using BookingService.Entity.Concrete;
+using BookingSevice.Entity.Concrete.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -36,6 +37,12 @@ namespace BookingService.Business.Concrete
         {
             var company = await companyAccess.GetItemById(id);
             return company;
+        }
+
+        public async Task<List<company>> GetElementsByPaging(PagingParameters pagingParameters)
+        {
+            var companyList = await companyAccess.GetElementsByPaging(pagingParameters);
+            return companyList;
         }
 
         public async Task<company> InsertElement(company item)

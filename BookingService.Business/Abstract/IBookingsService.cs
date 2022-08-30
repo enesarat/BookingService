@@ -19,7 +19,5 @@ namespace BookingService.Business.Abstract
         public Task<string> GetBookingConfirmationStatus(int id);
         public Task<bool> DeleteItemWithCretdention(int id);
         public List<bookings> GetByMultipleFilter(FilterDTO filter);
-        public Task<List<bookings>> GetAllElementByPaging(PagingParameters pagingParameters);
-
     }
 }
