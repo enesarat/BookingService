@@ -25,7 +25,7 @@ namespace BookingService.DataAccess.Helper.Calculation
         public string setHourInfo()
         {
             int idxCrop = timeString.IndexOf("T");
-            string hourInfo = timeString.Substring(idxCrop, timeString.Length-idxCrop);
+            string hourInfo = timeString.Substring(10, timeString.Length-10);
             this.hourInfo = hourInfo;
             return hourInfo;
         }
@@ -37,7 +37,7 @@ namespace BookingService.DataAccess.Helper.Calculation
         public string setShortDate()
         {
             int idxCrop = timeString.IndexOf("T");
-            string shortDate = timeString.Substring(0,idxCrop);
+            string shortDate = timeString.Substring(0,10);
             this.timeString = shortDate;
             return timeString;
         }

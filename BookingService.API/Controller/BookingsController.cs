@@ -1,6 +1,7 @@
 ﻿using BookingService.Business.Abstract;
 using BookingService.DataAccess.Helper.Exceptions;
 using BookingService.Entity.Concrete;
+using BookingSevice.Entity.Concrete.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -111,6 +112,15 @@ namespace BookingService.API.Controller
             string confirmationStatus = await manageBookings.GetBookingConfirmationStatus(id);
             return Ok(confirmationStatus); // 200 + retrieved data   
         }
+
+        [HttpGet]
+        [ExceptionFilter]
+        [Route("[action]/{id}")]
+        public IActionResult GetByMultipleFilter([FromBody] FilterDTO filter)
+        {
+            List<bookings> filterResults = manageBookings.GetByMultipleFilter(filter);
+            return Ok(filterResults); // 200 + retrieved data   
+        }
         //-------------------------------------------------------Get Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Post Requests Starts------------------------------------------//
@@ -148,8 +158,14 @@ namespace BookingService.API.Controller
         {
             if (await manageBookings.GetElementById(id) != null)
             {
-                await manageBookings.DeleteItem(id);
-                return Ok(); // 200
+                var status =await manageBookings.DeleteItemWithCretdention(id);
+
+                if (status) 
+                {
+                    return Ok(); // 200
+                }
+                return BadRequest("Kiralama işlemi onaylanmış olduğu işin tablodaki bu kaydı silemezsiniz!");
+                
             }
             return NotFound(); // 404 
         }

@@ -1,4 +1,5 @@
 ﻿using BookingService.Entity.Concrete;
+using BookingSevice.Entity.Concrete.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,8 @@ namespace BookingService.Business.Abstract
         public Task<string> GetBookingStartDate(int id);
         public Task<string> GetBookingEndDate(int id);
         public Task<string> GetBookingConfirmationStatus(int id);
-
+        public Task<bool> DeleteItemWithCretdention(int id);
+        public List<bookings> GetByMultipleFilter(FilterDTO filter);
 
     }
 }

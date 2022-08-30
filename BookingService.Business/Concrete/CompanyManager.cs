@@ -3,6 +3,7 @@ using BookingService.DataAccess.Abstract;
 using BookingService.Entity.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,11 @@ namespace BookingService.Business.Concrete
         {
             var companyList = await companyAccess.GetAllItems();
             return companyList;
+        }
+
+        public List<company> GetAllItemsByFilter(Expression<Func<company, bool>> filter)
+        {
+            return companyAccess.GetAllItemsByFilter(filter);
         }
 
         public async Task<company> GetElementById(int id)
