@@ -57,6 +57,11 @@ namespace BookingService.Business.Concrete
             return bookingsList;
         }
 
+        public async Task<List<bookings>> GetAllElementByPaging(PagingParameters pagingParameters)
+        {
+            var bookingsList = await bookingsAccess.GetElementsByPaging(pagingParameters);
+            return bookingsList;
+        }
         public List<bookings> GetAllItemsByFilter(Expression<Func<bookings, bool>> filter)
         {
             return bookingsAccess.GetAllItemsByFilter(filter);
@@ -103,7 +108,6 @@ namespace BookingService.Business.Concrete
                 }
                 if (filter.starts_at != null)
                 {
-                    //query = query.Where(x => x.starts_at == filter.starts_at).ToList();
                     query = query.Where(x => x.starts_at.Contains(filter.starts_at)).ToList();
                 }
                 if (filter.end_at != null)
@@ -353,6 +357,6 @@ namespace BookingService.Business.Concrete
             return item;
         }
 
-
+       
     }
 }

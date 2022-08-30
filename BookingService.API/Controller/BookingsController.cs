@@ -23,9 +23,9 @@ namespace BookingService.API.Controller
 
         //-------------------------------------------------------Get Requests Starts------------------------------------------//
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
-            return Ok(await manageBookings.GetAllElement()); // 200 + retrieved data 
+            return Ok(await manageBookings.GetAllElementByPaging(pagingParameters)); // 200 + retrieved data 
         }
 
         [HttpGet]
@@ -116,7 +116,7 @@ namespace BookingService.API.Controller
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
-        public IActionResult GetByMultipleFilter([FromBody] FilterDTO filter)
+        public IActionResult GetByMultipleFilter([FromQuery] FilterDTO filter)
         {
             List<bookings> filterResults = manageBookings.GetByMultipleFilter(filter);
             return Ok(filterResults); // 200 + retrieved data   
