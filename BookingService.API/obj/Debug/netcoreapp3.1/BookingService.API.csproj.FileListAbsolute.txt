@@ -66,3 +66,14 @@ C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreap
 C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Enes\source\repos\BookingService\BookingService.API\obj\Debug\netcoreapp3.1\BookingService.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\BookingService.API.xml
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\Namotion.Reflection.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\NJsonSchema.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\NJsonSchema.Yaml.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\NSwag.Annotations.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\NSwag.AspNetCore.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\NSwag.Core.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\NSwag.Core.Yaml.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\NSwag.Generation.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\NSwag.Generation.AspNetCore.dll
+C:\Users\Enes\source\repos\BookingService\BookingService.API\bin\Debug\netcoreapp3.1\YamlDotNet.dll

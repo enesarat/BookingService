@@ -31,9 +31,6 @@ namespace BookingService.API
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
-            /*services.AddDbContext<BookingServiceDbContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("BookingServiceDbContext")));
-            */
 
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
@@ -52,6 +49,22 @@ namespace BookingService.API
 
             services.AddSingleton<IUsersService, UsersManager>();
             services.AddSingleton<IUsersDAL, EfUsersRepository>();
+
+
+
+            services.AddSwaggerDocument(config=> {
+                config.PostProcess = (doc =>
+                {
+                    doc.Info.Title = "Booking Service RESTful API";
+                    doc.Info.Version = "1.0.0";
+                    doc.Info.Contact = new NSwag.OpenApiContact()
+                    {
+                        Name = "Enes Arat",
+                        Url = "https://github.com/enesarat",
+                        Email = "enes_arat@outlook.com"
+                    };
+                });            
+            });
 
         }
 
@@ -72,6 +85,10 @@ namespace BookingService.API
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseOpenApi();
+
+            app.UseSwaggerUi3();
 
             app.UseAuthorization();
 

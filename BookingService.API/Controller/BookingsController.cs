@@ -22,12 +22,22 @@ namespace BookingService.API.Controller
         }
 
         //-------------------------------------------------------Get Requests Starts------------------------------------------//
+        /// <summary>
+        /// This endpoint receives all bookings data via paging, bringing 10 data per page. (default)
+        /// </summary>
+        /// <param name="pagingParameters"></param>
+        /// <returns>10 bookings data for a page (default)</returns>        
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
             return Ok(await manageBookings.GetElementsByPaging(pagingParameters)); // 200 + retrieved data 
         }
 
+        /// <summary>
+        /// This endpoint gets booking data by id input.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>1 booking data which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -36,6 +46,11 @@ namespace BookingService.API.Controller
             return Ok(await manageBookings.GetElementById(id)); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint gets booked apartment name by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Apartment name which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -46,6 +61,11 @@ namespace BookingService.API.Controller
             return Ok(aptName); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint gets apartment address by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Apartment address which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -56,6 +76,11 @@ namespace BookingService.API.Controller
             return Ok(aptAddress); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint gets zip code of apartment address by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Zip code of apartment address which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -66,6 +91,11 @@ namespace BookingService.API.Controller
             return Ok(aptAddressZipCode); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint gets city of apartment by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>City of apartment address which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -76,6 +106,11 @@ namespace BookingService.API.Controller
             return Ok(aptCity); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint gets country of apartment by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Country of apartment address which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -86,6 +121,11 @@ namespace BookingService.API.Controller
             return Ok(aptCountry); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint gets start date of booking by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Start date of booking which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -95,6 +135,11 @@ namespace BookingService.API.Controller
             return Ok(startDate); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint gets end date of booking by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>End date of booking which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -104,6 +149,11 @@ namespace BookingService.API.Controller
             return Ok(endDate); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint gets confirmation status of booking by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Confirmation status of booking which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -113,6 +163,11 @@ namespace BookingService.API.Controller
             return Ok(confirmationStatus); // 200 + retrieved data   
         }
 
+        /// <summary>
+        /// This endpoint returns the booking data it finds as a result of the filter made using multiple optional features.
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns>Booking data it finds as a result of the filter made using multiple optional features</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -124,6 +179,11 @@ namespace BookingService.API.Controller
         //-------------------------------------------------------Get Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Post Requests Starts------------------------------------------//
+        /// <summary>
+        /// This endpoint creates a new booking record using the values ​​it receives.
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns>Created booking record</returns>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] bookings book)
         {
@@ -137,6 +197,11 @@ namespace BookingService.API.Controller
         //-------------------------------------------------------Post Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Put Requests Starts------------------------------------------//
+        /// <summary>
+        /// This endpoint updates an existing booking record using the values ​​it receives.
+        /// </summary>
+        /// <param name="oldBooking"></param>
+        /// <returns>Updated booking record</returns>
         [HttpPut]
         [ExceptionFilter]
 
@@ -151,6 +216,11 @@ namespace BookingService.API.Controller
         //-------------------------------------------------------Put Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Delete Requests Starts------------------------------------------//
+        /// <summary>
+        /// This endpoint deletes the existing booking record that matches the id value it received. In order for the deletion to be performed, the confirmation status must be 0 (not confirmed)!
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [ExceptionFilter]
         [Route("[action]/{id}")]
