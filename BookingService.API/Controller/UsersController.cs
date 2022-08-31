@@ -22,12 +22,22 @@ namespace BookingService.API.Controller
         }
 
         //-------------------------------------------------------Get Requests Starts------------------------------------------//
+        /// <summary>
+        /// This endpoint receives all user data via paging, bringing 10 data per page. (default)
+        /// </summary>
+        /// <param name="pagingParameters"></param>
+        /// <returns>10 user data for a page (default)</returns>
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
             return Ok(await manageUsers.GetElementsByPaging(pagingParameters)); // 200 + retrieved data 
         }
 
+        /// <summary>
+        /// This endpoint gets first name of user by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>First name of user which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -38,6 +48,11 @@ namespace BookingService.API.Controller
             return Ok(fistname); // 200 + retrieved data 
         }
 
+        /// <summary>
+        /// This endpoint gets last name of user by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Last name of user which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -48,6 +63,11 @@ namespace BookingService.API.Controller
             return Ok(lastname); // 200 + retrieved data 
         }
 
+        /// <summary>
+        /// This endpoint gets email of user by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Email of user which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -58,6 +78,11 @@ namespace BookingService.API.Controller
             return Ok(email); // 200 + retrieved data 
         }
 
+        /// <summary>
+        /// This endpoint gets phone number of user by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Phone number of user which exist with id</returns>
         [HttpGet]
         [ExceptionFilter]
         [Route("[action]/{id}")]
@@ -70,6 +95,11 @@ namespace BookingService.API.Controller
         //-------------------------------------------------------Get Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Post Requests Starts------------------------------------------//
+        /// <summary>
+        /// This endpoint creates a new user record using the values ​​it receives.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>Created user record</returns>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] users user)
         {
@@ -83,6 +113,11 @@ namespace BookingService.API.Controller
         //-------------------------------------------------------Post Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Put Requests Starts------------------------------------------//
+        /// <summary>
+        /// This endpoint updates an existing user record using the values ​​it receives.
+        /// </summary>
+        /// <param name="oldUser"></param>
+        /// <returns>Updated user record</returns>
         [HttpPut]
         [ExceptionFilter]
 
@@ -97,6 +132,11 @@ namespace BookingService.API.Controller
         //-------------------------------------------------------Put Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Delete Requests Starts------------------------------------------//
+        /// <summary>
+        /// This endpoint deletes the existing user record that matches the id value it received.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [ExceptionFilter]
         [Route("[action]/{id}")]

@@ -9,6 +9,11 @@ namespace BookingService.Business.Abstract
 {
     public interface IBookingsService:IGenericService<bookings>
     {
+        public Task<BookingInfoListDTO> GetBookingInfoById(int id);
+        public Task<string> GetUserFirstName(int id);
+        public Task<string> GetUserLastName(int id);
+        public Task<string> GetUserEmail(int id);
+        public Task<string> GetUserPhoneNumber(int id);
         public Task<string> GetAppartmentName(bookings item);
         public Task<string> GetAppartmentAddress(bookings item);
         public Task<string> GetAppartmentAddressZipCode(bookings item);

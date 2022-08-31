@@ -176,6 +176,76 @@ namespace BookingService.API.Controller
             List<bookings> filterResults = manageBookings.GetByMultipleFilter(filter);
             return Ok(filterResults); // 200 + retrieved data   
         }
+
+        /// <summary>
+        /// This endpoint returns the user first name of booking data by given id.
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns>User first name of booking which exist with id</returns>
+        [HttpGet]
+        [ExceptionFilter]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> GetBookedUserFirstName(int id)
+        {
+            string userFirstName = await manageBookings.GetUserFirstName(id);
+            return Ok(userFirstName); // 200 + retrieved data   
+        }
+
+        /// <summary>
+        /// This endpoint returns the user last name of booking data by given id.
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns>User last name of booking which exist with id</returns>
+        [HttpGet]
+        [ExceptionFilter]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> GetBookedUserLastName(int id)
+        {
+            string userLastName = await manageBookings.GetUserLastName(id);
+            return Ok(userLastName); // 200 + retrieved data   
+        }
+
+        /// <summary>
+        /// This endpoint returns the user email of booking data by given id.
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns>User email of booking which exist with id</returns>
+        [HttpGet]
+        [ExceptionFilter]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> GetBookedUserEmail(int id)
+        {
+            string userEmail = await manageBookings.GetUserEmail(id);
+            return Ok(userEmail); // 200 + retrieved data   
+        }
+
+        /// <summary>
+        /// This endpoint returns the user phone number of booking data by given id.
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns>User phone number of booking which exist with id</returns>
+        [HttpGet]
+        [ExceptionFilter]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> GetBookedUserPhoneNumber(int id)
+        {
+            string userPhone = await manageBookings.GetUserPhoneNumber(id);
+            return Ok(userPhone); // 200 + retrieved data   
+        }
+
+        /// <summary>
+        /// This endpoint returns the normalized booking informations of booking record by given id.
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns>Normalized booking informations of booking which exist with id</returns>
+        [HttpGet]
+        [ExceptionFilter]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> GetBookingInfoById(int id)
+        {
+            BookingInfoListDTO booking = await manageBookings.GetBookingInfoById(id);
+            return Ok(booking); // 200 + retrieved data   
+        }
         //-------------------------------------------------------Get Requests Ends------------------------------------------//
 
         //-------------------------------------------------------Post Requests Starts------------------------------------------//

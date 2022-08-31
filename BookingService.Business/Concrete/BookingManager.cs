@@ -359,6 +359,62 @@ namespace BookingService.Business.Concrete
             return item;
         }
 
-        
+        public async Task<string> GetUserFirstName(int id)
+        {
+            var booking = await bookingsAccess.GetItemById(id);
+            int bookingUserId = booking.user_id;
+            var user = userAccess.GetItemById(bookingUserId);
+            string userFirstName = user.Result.first_name;
+            return userFirstName;
+        }
+
+        public async Task<string> GetUserLastName(int id)
+        {
+            var booking = await bookingsAccess.GetItemById(id);
+            int bookingUserId = booking.user_id;
+            var user = userAccess.GetItemById(bookingUserId);
+            string userLastName = user.Result.last_name;
+            return userLastName;
+        }
+
+        public async Task<string> GetUserEmail(int id)
+        {
+            var booking = await bookingsAccess.GetItemById(id);
+            int bookingUserId = booking.user_id;
+            var user = userAccess.GetItemById(bookingUserId);
+            string userEmail = user.Result.email;
+            return userEmail;
+        }
+
+        public async Task<string> GetUserPhoneNumber(int id)
+        {
+            var booking = await bookingsAccess.GetItemById(id);
+            int bookingUserId = booking.user_id;
+            var user = userAccess.GetItemById(bookingUserId);
+            string userPhone = user.Result.phone;
+            return userPhone;
+        }
+
+        public async Task<BookingInfoListDTO> GetBookingInfoById(int id)
+        {
+            BookingInfoListDTO bookingInfo = new BookingInfoListDTO();
+            var booking = await bookingsAccess.GetItemById(id);
+            int bookingUserId = booking.user_id;
+            var user = userAccess.GetItemById(bookingUserId);
+            bookingInfo.FirstName = user.Result.first_name;
+            bookingInfo.LastName = user.Result.last_name;
+            bookingInfo.Email = user.Result.email;
+            bookingInfo.Phone = user.Result.phone;
+            var apartment = appartmentAccess.GetItemById(booking.apartment_id);
+            bookingInfo.ApartmentName = apartment.Result.name;
+            bookingInfo.ApartmentAddress = apartment.Result.address;
+            bookingInfo.ApartmentAddressZipCode = apartment.Result.zip_code;
+            bookingInfo.ApartmentAddressCity = apartment.Result.city;
+            bookingInfo.ApartmentAddressCountry = apartment.Result.country;
+            bookingInfo.BookingStartDate = booking.starts_at;
+            bookingInfo.BookingEndDate = await GetBookingEndDate(booking.id);
+            bookingInfo.ConfirmationStatus = await GetBookingConfirmationStatus(booking.id);
+            return bookingInfo;
+        }
     }
 }

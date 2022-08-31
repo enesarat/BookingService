@@ -81,6 +81,41 @@
             <param name="filter"></param>
             <returns>Booking data it finds as a result of the filter made using multiple optional features</returns>
         </member>
+        <member name="M:BookingService.API.Controller.BookingsController.GetBookedUserFirstName(System.Int32)">
+            <summary>
+            This endpoint returns the user first name of booking data by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>User first name of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controller.BookingsController.GetBookedUserLastName(System.Int32)">
+            <summary>
+            This endpoint returns the user last name of booking data by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>User last name of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controller.BookingsController.GetBookedUserEmail(System.Int32)">
+            <summary>
+            This endpoint returns the user email of booking data by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>User email of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controller.BookingsController.GetBookedUserPhoneNumber(System.Int32)">
+            <summary>
+            This endpoint returns the user phone number of booking data by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>User phone number of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controller.BookingsController.GetBookingInfoById(System.Int32)">
+            <summary>
+            This endpoint returns the normalized booking informations of booking record by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>Normalized booking informations of booking which exist with id</returns>
+        </member>
         <member name="M:BookingService.API.Controller.BookingsController.Post(BookingService.Entity.Concrete.bookings)">
             <summary>
             This endpoint creates a new booking record using the values ​​it receives.
