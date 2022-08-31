@@ -12,5 +12,7 @@ namespace BookingService.Business.Abstract
         public Task<string> GetUserLastName(users item);
         public Task<string> GetUserEmail(users item);
         public Task<string> GetUserPhoneNo(users item);
+        public Task<bool> DeleteItemWithRecordCheck(int id);
+
     }
 }

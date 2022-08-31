@@ -13,13 +13,30 @@ namespace BookingService.Business.Concrete
     public class UsersManager : IUsersService
     {
         IUsersDAL usersAccess;
-        public UsersManager(IUsersDAL usersAccess)
+        IBookingsDAL bookingsAccess;
+        public UsersManager(IUsersDAL usersAccess, IBookingsDAL bookingsAccess)
         {
             this.usersAccess = usersAccess;
+            this.bookingsAccess = bookingsAccess;
         }
         public async Task DeleteItem(int id)
         {
             await usersAccess.DeleteItem(id);
+        }
+
+        public async Task<bool> DeleteItemWithRecordCheck(int id)
+        {
+            var deleteItem = usersAccess.GetItemById(id);
+            var isUsed = bookingsAccess.GetAllItemsByFilter(x => x.user_id == deleteItem.Result.id);
+            if (isUsed.Count == 0)
+            {
+                await usersAccess.DeleteItem(deleteItem.Result.id);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public async Task<List<users>> GetAllElement()

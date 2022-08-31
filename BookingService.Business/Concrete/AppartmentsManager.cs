@@ -13,13 +13,30 @@ namespace BookingService.Business.Concrete
     public class AppartmentsManager : IAppartmentsService
     {
         IAppartmentsDAL appartmentsAccess;
-        public AppartmentsManager(IAppartmentsDAL appartmentsAccess)
+        IBookingsDAL bookingsAccess;
+        public AppartmentsManager(IAppartmentsDAL appartmentsAccess, IBookingsDAL bookingsAccess)
         {
             this.appartmentsAccess = appartmentsAccess;
+            this.bookingsAccess = bookingsAccess;
         }
         public async Task DeleteItem(int id)
         {
             await appartmentsAccess.DeleteItem(id);
+        }
+
+        public async Task<bool> DeleteItemWithRecordCheck(int id)
+        {
+            var deleteItem = appartmentsAccess.GetItemById(id);
+            var isUsed = bookingsAccess.GetAllItemsByFilter(x => x.apartment_id == deleteItem.Result.id);
+            if (isUsed.Count==0)
+            {
+                await appartmentsAccess.DeleteItem(deleteItem.Result.id);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public async Task<List<appartments>> GetAllElement()

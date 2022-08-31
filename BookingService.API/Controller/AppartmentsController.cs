@@ -73,7 +73,7 @@ namespace BookingService.API.Controller
 
         //-------------------------------------------------------Delete Requests Starts------------------------------------------//
         /// <summary>
-        /// This endpoint deletes the existing appartment record that matches the id value it received.
+        /// This endpoint deletes the existing appartment record that matches the id value it received.In order for the deletion process to be carried out successfully, the apartment must not be included in any booking record!
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -84,8 +84,14 @@ namespace BookingService.API.Controller
         {
             if (await manageAppartments.GetElementById(id) != null)
             {
-                await manageAppartments.DeleteItem(id);
-                return Ok(); // 200
+                var status = await manageAppartments.DeleteItemWithRecordCheck(id);
+
+                if (status)
+                {
+                    return Ok(); // 200
+                }
+                return BadRequest("Silmek istediğiniz apartman, herhangi bir kiralama kaydında yer aldığı için silme işlemi gerçekleştirilememiştir.");
+
             }
             return NotFound(); // 404 
         }
